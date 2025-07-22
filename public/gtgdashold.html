@@ -105,10 +105,10 @@ rgba(0,0,0,0.1); }
     async function updateDashboard() {
       const cacheBust = `?_=${Date.now()}`;
       const [burnLog, holders, bonusLog, distributionLog, price] = await Promise.all([
-        fetchJSON("/data/burn-log.json" + cacheBust),
-        fetchJSON("/data/gtg-holders.json" + cacheBust),
-        fetchJSON("/data/bonus-log.json" + cacheBust),
-        fetchJSON("/data/distribution.json" + cacheBust),
+        fetchJSON("burn-log.json" + cacheBust),
+        fetchJSON("gtg-holders.json" + cacheBust),
+        fetchJSON("bonus-log.json" + cacheBust),
+        fetchJSON("distribution.json" + cacheBust),
         fetchCoingeckoPrice()
       ]);
 
