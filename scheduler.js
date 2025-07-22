@@ -18,7 +18,7 @@ function runScript(label, file) {
 async function main() {
   try {
     await runScript("Holders", "./scripts/holders.cjs");
-    await runScript("Airdrop", "./scripts/airdrop.js");
+    await runScript("Airdrop", "./scripts/airdrop.cjs");
     await runScript("Burn", "./scripts/burn.cjs");
     await runScript("Bonus", "./scripts/bonus7.js");
     console.log("🎉 All tasks complete.");
