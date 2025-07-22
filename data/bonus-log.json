@@ -1,0 +1,56 @@
+[
+  {
+    "rank": 1,
+    "recipient": "BXEQkRAh5uHP72xqe9efBQRuB2hS3qpuebDp5canP7Pa",
+    "amount": 5,
+    "tx": "4PNyt4oF6P7sRWTcoVW45UVbcK7VW54YKGZJchCyLX6XrxSJxNLGVbnBgyyiASH1t76RnRtyTm4xzTG1YQng6vP2"
+  },
+  {
+    "rank": 2,
+    "recipient": "8Veq3G65cAv88foMN4yWNwd8z1visrpkCpmhuu9iaSJP",
+    "amount": 2,
+    "tx": "2FWdEjEaj9Rg8NnZnp4iMszPkS6L5Wg4rB8dFX7Nmb4Mn7zn9JYcuaNshfHAr6TKuKHHc4xVu7u7gB3e93Gjy8fh"
+  },
+  {
+    "rank": 3,
+    "recipient": "EuedL84fVmM5FL7FWmWV9u5TMgf5nL9V9vd4jtyu9k1r",
+    "amount": 0.5,
+    "tx": "3PvpY335vKEBA6x1oiFn9jVTSoSwhDoTGXQC9FuT7JipZFACtAYWtGrdz5q2mQjbbHAEoQrZGMFvn6v3xEhkYmRS"
+  },
+  {
+    "rank": 4,
+    "recipient": "CWSBtsbo7N49iH7UuHotAWLrbV1n5FeePXn4rc32FJub",
+    "amount": 0.357,
+    "tx": "29a6LqcgGFDkxx3BXpPRtUevrCdPrESN1mKHMUc5ZhpTCFLopjYedybh47GsR3NS6g7TByQUAh7hDot9SuMZiRhw"
+  },
+  {
+    "rank": 5,
+    "recipient": "JA2SRHpThp4hQNM9537n9138RqiKmSddt6grWFK6viYS",
+    "amount": 0.357,
+    "tx": "2D1Q2nY8vE1Zgym389eDcQ9Px7mEVMi6aWB3LHDKV8JgW3jQm4Eo7AT429AX9H53RcESw8MkG7gbea7d58b7H9ET"
+  },
+  {
+    "rank": 7,
+    "recipient": "3HhWTLVug55hpRWU6FsxDGCHDKBmmYSXaySUbMoDoYqD",
+    "amount": 0.357,
+    "tx": "4d1AsMSSjriKRnt9gcNtsTeSUgnSKuQLCagYz59LMEmmQdqs7za4srySMnCSXUrMhrqxjDaji6oRMgECjYSrUBTL"
+  },
+  {
+    "rank": 8,
+    "recipient": "8RknfWhm9Cw4WDeL9Z8oh3uvRYj3ZEvb6hFESFKa3PB1",
+    "amount": 0.357,
+    "tx": "4R5RTjk7oMQKuxRmWVSEs3a8Gwqv6hctw8giqirCWwe57DmEVrXUcQo7X98c5GMbyeke7GAD2qGyFm2BM9tEMC8N"
+  },
+  {
+    "rank": 9,
+    "recipient": "45uHGcerR18ZqTVZGtZkxL8MZXMkLjsMqqdNUSGQaerZ",
+    "amount": 0.357,
+    "tx": "FmjvvvSWx3y3csDir5YD4J4ZDNVZHXyMDmEoiWKYq1ccEXiVu9k87mFwkjuHyfn671a7i1zLHRD28P3AFyKo5rC"
+  },
+  {
+    "rank": 10,
+    "recipient": "47MD734cLCRpwic4wcYTTtXmrUy6Z1xUpP7CFH6PjcSt",
+    "amount": 0.357,
+    "tx": "2x6jP8F7kq6N2H7cJRaBN3CBJUzNDtKzBeqefWwHsmmQrBSWqVtsU2SVgQNVNt4SqgnvFLj33YmZL6swq8xYzUnB"
+  }
+]
