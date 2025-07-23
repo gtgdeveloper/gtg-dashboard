@@ -2,8 +2,8 @@
 const fs = require("fs");
 const { Connection, PublicKey } = require("@solana/web3.js");
 
-const RPC_ENDPOINT = "https://api.mainnet-beta.solana.com";
-const MINT_ADDRESS = new PublicKey("YOUR_GTG_TOKEN_MINT_ADDRESS");
+const RPC_ENDPOINT = "https://bold-powerful-film.solana-mainnet.quiknode.pro/3e3c22206acbd0918412343760560cbb96a4e9e4";
+const MINT_ADDRESS = new PublicKey("4nm1ksSbynirCJoZcisGTzQ7c3XBEdxQUpN9EPpemoon");
 const HOLDERS_FILE = "./data/gtg-holders.json";
 
 async function findGTGHolders(mintAddress) {
