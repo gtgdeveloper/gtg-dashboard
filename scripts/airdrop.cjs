@@ -7,12 +7,13 @@ const {
   TOKEN_PROGRAM_ID
 } = require("@solana/spl-token");
 
-const MINT = new PublicKey("YOUR_GTG_MINT_ADDRESS_HERE");
+const GTG_MINT = new PublicKey("4nm1ksSbynirCJoZcisGTzQ7c3XBEdxQUpN9EPpemoon");
+
 const DISTRIBUTION_LOG = "./data/distribution.json";
 const HOLDERS_FILE = "./data/gtg-holders.json";
 const AMOUNT_TOTAL = 1667000000000; // 1667 GTG with 9 decimals
 
-const connection = new Connection("https://api.mainnet-beta.solana.com", "confirmed");
+const RPC_ENDPOINT = "https://bold-powerful-film.solana-mainnet.quiknode.pro/3e3c22206acbd0918412343760560cbb96a4e9e4";
 
 const secretKey = Uint8Array.from(JSON.parse(
   Buffer.from(process.env.REPAIR_KEY, 'base64').toString('utf-8')
@@ -40,7 +41,13 @@ const payer = Keypair.fromSecretKey(secretKey);
     const amount = Math.floor(AMOUNT_TOTAL * share);
 
     try {
-      const recipient = new PublicKey(h.wallet);
+      let recipient;
+      try {
+        recipient = new PublicKey(h.wallet);
+      } catch (e) {
+        console.error(`❌ Skipping invalid wallet address: ${h.wallet}`);
+        continue;
+      }
 
       const toTokenAccount = await getOrCreateAssociatedTokenAccount(
         connection,
