@@ -1,48 +1,96 @@
 const fs = require("fs");
-const { Connection, PublicKey, Keypair, Transaction, SystemProgram } = require("@solana/web3.js");
+const {
+  Connection,
+  Keypair,
+  PublicKey,
+  Transaction,
+  sendAndConfirmTransaction,
+} = require("@solana/web3.js");
+const {
+  getOrCreateAssociatedTokenAccount,
+  createTransferInstruction,
+  TOKEN_PROGRAM_ID,
+} = require("@solana/spl-token");
 
-// Constants
-const RPC_URL = "https://bold-powerful-film.solana-mainnet.quiknode.pro/3e3c22206acbd0918412343760560cbb96a4e9e4";
-const connection = new Connection(RPC_URL, "confirmed");
-const TOKEN_MINT = new PublicKey("4nm1ksSbynirCJoZcisGTzQ7c3XBEdxQUpN9EPpemoon"); // GTG Mint
-
-// Load secret key
-const decoded = Buffer.from(process.env.REPAIR_SECRET, "base64").toString("utf-8");
-const secretKey = Uint8Array.from(JSON.parse(decoded));const sender = Keypair.fromSecretKey(secretKey);
-
-// Load and validate holders file
-const holdersPath = "./data/gtg-holders.json";
-if (!fs.existsSync(holdersPath)) {
-  console.error("❌ Missing holders file at", holdersPath);
+// ✅ Use REPAIR_SECRET from env
+if (!process.env.REPAIR_SECRET) {
+  console.error("❌ Missing REPAIR_SECRET env variable");
   process.exit(1);
 }
 
-let holders;
+let secretKey;
 try {
-  holders = JSON.parse(fs.readFileSync(holdersPath, "utf8"));
-  if (!Array.isArray(holders)) throw new Error("Holders data is not an array.");
-} catch (err) {
-  console.error("❌ Failed to parse gtg-holders.json:", err.message);
+  const decoded = Buffer.from(process.env.REPAIR_SECRET, "base64").toString("utf8");
+  secretKey = Uint8Array.from(JSON.parse(decoded));
+} catch (e) {
+  console.error("❌ Failed to parse REPAIR_SECRET:", e.message);
   process.exit(1);
 }
 
-const eligible = holders.filter(h => h.amount >= 20000);
-console.log(`👥 Eligible wallets: ${eligible.length}`);
+const fromWallet = Keypair.fromSecretKey(secretKey);
 
-// Dummy transfer function (replace with actual SPL token logic if needed)
-async function transferGTG(recipient, amount) {
-  console.log(`🚀 Would send ${amount} GTG to ${recipient.toBase58()}`);
-}
+// ✅ Set up your custom Solana RPC
+const connection = new Connection(
+  "https://bold-powerful-film.solana-mainnet.quiknode.pro/3e3c22206acbd0918412343760560cbb96a4e9e4",
+  "confirmed"
+);
+
+// ✅ Your GTG Token Mint
+const GTG_MINT = new PublicKey("4nm1ksSbynirCJoZcisGTzQ7c3XBEdxQUpN9EPpemoon");
 
 (async () => {
-  for (const h of eligible) {
+  console.log("🚀 Starting GTG airdrop...");
+
+  let holders;
+  try {
+    holders = JSON.parse(fs.readFileSync("./data/gtg-holders.json"));
+  } catch (err) {
+    console.error("❌ Failed to read holders file:", err.message);
+    process.exit(1);
+  }
+
+  // ✅ Load sender token account
+  const senderTokenAccount = await getOrCreateAssociatedTokenAccount(
+    connection,
+    fromWallet,
+    GTG_MINT,
+    fromWallet.publicKey
+  );
+
+  for (const holder of holders) {
     try {
-      const recipient = new PublicKey(h.wallet);
-      const amount = 1; // You can calculate based on rules
-      await transferGTG(recipient, amount);
+      const wallet = new PublicKey(holder.wallet);
+      const amount = parseFloat(holder.amount);
+
+      if (isNaN(amount) || amount <= 0) {
+        console.log(`⚠️ Skipping invalid or zero amount for ${holder.wallet}`);
+        continue;
+      }
+
+      const recipientTokenAccount = await getOrCreateAssociatedTokenAccount(
+        connection,
+        fromWallet,
+        GTG_MINT,
+        wallet
+      );
+
+      const tx = new Transaction().add(
+        createTransferInstruction(
+          senderTokenAccount.address,
+          recipientTokenAccount.address,
+          fromWallet.publicKey,
+          amount * 1_000_000, // GTG has 6 decimals
+          [],
+          TOKEN_PROGRAM_ID
+        )
+      );
+
+      const signature = await sendAndConfirmTransaction(connection, tx, [fromWallet]);
+      console.log(`✅ Sent ${amount} GTG to ${holder.wallet} | Tx: https://solscan.io/tx/${signature}`);
     } catch (err) {
-      console.error(`❌ Failed on ${h.wallet}:`, err.message);
+      console.error(`❌ Error sending to ${holder.wallet}: ${err.message}`);
     }
   }
-  console.log("✅ Airdrop process complete.");
+
+  console.log("✅ Airdrop complete.");
 })();
