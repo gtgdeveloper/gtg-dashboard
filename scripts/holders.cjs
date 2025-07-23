@@ -45,7 +45,8 @@ for (const holder of qualifying) {
   console.log(`${holder.owner}: ${holder.amount.toLocaleString()} GTG`);
 }
 
-  fs.writeFileSync("data/gtg-holders.json", JSON.stringify(qualifying, null, 2));
+  fs.writeFileSync("./data/gtg-holders.json", JSON.stringify(results, null, 2));
+
   console.log("💾 Saved to gtg-holders.json");
 }
 

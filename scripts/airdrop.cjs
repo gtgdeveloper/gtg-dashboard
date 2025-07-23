@@ -11,7 +11,8 @@ const connection = new Connection(RPC, "confirmed");
 
 const MINT = new PublicKey("4nm1ksSbynirCJoZcisGTzQ7c3XBEdxQUpN9EPpemoon");
 const AMOUNT_TOTAL = 1_667 * 1e9;
-const HOLDERS_FILE = path.join(__dirname, "gtg-holders.json");
+const HOLDERS_FILE = "./data/gtg-holders.json";
+
 const DISTRIBUTION_LOG = path.join(__dirname, "distribution.json");
 
 const repairBase64 = process.env.REPAIR_KEY;
