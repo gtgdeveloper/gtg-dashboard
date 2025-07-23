@@ -5,7 +5,7 @@
   },
   {
     "owner": "F8gacHyY4APg1ceiUQHVBteHdQ4htTtJxw24wMVTEKWf",
-    "amount": 91621373.310822
+    "amount": 91612762.68466519
   },
   {
     "owner": "9ZHiw3wqtYxrppgAfEbXResxWUasSiVN3jmjQrU9wQYA",
@@ -304,11 +304,11 @@
     "amount": 1261259.999999999
   },
   {
-    "owner": "DoBGGtypSJvgmwVj1dVKARui52YdWHHEZUmXLjmnkdum",
+    "owner": "6SyLbAmhjWCjuvD4mNZanuT8bYZDbPcwM9966px6qR1x",
     "amount": 1212749.999999999
   },
   {
-    "owner": "B6eCTNftSFHo1TfzQ3Xjy7dVrbiGtfELqvAXtFf35quC",
+    "owner": "DoBGGtypSJvgmwVj1dVKARui52YdWHHEZUmXLjmnkdum",
     "amount": 1212749.999999999
   },
   {
@@ -316,7 +316,7 @@
     "amount": 1212749.999999999
   },
   {
-    "owner": "6SyLbAmhjWCjuvD4mNZanuT8bYZDbPcwM9966px6qR1x",
+    "owner": "B6eCTNftSFHo1TfzQ3Xjy7dVrbiGtfELqvAXtFf35quC",
     "amount": 1212749.999999999
   },
   {
@@ -340,7 +340,7 @@
     "amount": 1172843.787508687
   },
   {
-    "owner": "QDZkCqMUkEcUB7JdCpAc3guZQieAJ5aiW8UkC7AZkHu",
+    "owner": "EaGj7kx632FuRU26mtb6UjUvQjLTsnHHME8Yf5dAyg7e",
     "amount": 1164239.999999999
   },
   {
@@ -348,7 +348,7 @@
     "amount": 1164239.999999999
   },
   {
-    "owner": "EaGj7kx632FuRU26mtb6UjUvQjLTsnHHME8Yf5dAyg7e",
+    "owner": "QDZkCqMUkEcUB7JdCpAc3guZQieAJ5aiW8UkC7AZkHu",
     "amount": 1164239.999999999
   },
   {
@@ -372,15 +372,15 @@
     "amount": 1139984.999999999
   },
   {
+    "owner": "JDTybisdWYmqxsGAmX9Y4PgaFkN9oP5qrH1nsKfMQJta",
+    "amount": 1115729.999999999
+  },
+  {
     "owner": "3fM5cdu7uDHkqGEDTBzJs3gECu6wyBNTXKpFYZwZ1TZ8",
     "amount": 1115729.999999999
   },
   {
     "owner": "F2ppiQwBqBAX7QdymAGohyj7o6eY5Q9aJMJyj498KakH",
-    "amount": 1115729.999999999
-  },
-  {
-    "owner": "JDTybisdWYmqxsGAmX9Y4PgaFkN9oP5qrH1nsKfMQJta",
     "amount": 1115729.999999999
   },
   {
@@ -668,6 +668,10 @@
     "amount": 78818.470534306
   },
   {
+    "owner": "7ftDeYapdZ9xHQ2X8XX14x5gSdcacPeeBi23xDAozMct",
+    "amount": 78805.659761965
+  },
+  {
     "owner": "GZtd6uxVTtuWpHfoGNbq4DDCYadPvFDvDakWVZyn6xfk",
     "amount": 78797.711636115
   },
@@ -680,8 +684,8 @@
     "amount": 78696.186688179
   },
   {
-    "owner": "7ftDeYapdZ9xHQ2X8XX14x5gSdcacPeeBi23xDAozMct",
-    "amount": 78619.694503338
+    "owner": "3t35yLb3PmKYVwEULLnQSgpwGrr9P2K5MbSGVj6LzDvt",
+    "amount": 78645.092962114
   },
   {
     "owner": "3HhWTLVug55hpRWU6FsxDGCHDKBmmYSXaySUbMoDoYqD",
@@ -710,10 +714,6 @@
   {
     "owner": "HaiL2iBjnCVEAnE5aaQQQPFiEkGUiXELUqKvp4ZFB5VH",
     "amount": 78462.382762139
-  },
-  {
-    "owner": "3t35yLb3PmKYVwEULLnQSgpwGrr9P2K5MbSGVj6LzDvt",
-    "amount": 78424.478892627
   },
   {
     "owner": "3EwJnK4vR8LkwEz7T53cACNSnkJmchG7nM9JVeYwEA4L",
@@ -752,6 +752,18 @@
     "amount": 78213.488573061
   },
   {
+    "owner": "9gTVfK8CZjdP3KfNLaWFMgGA1FkDdeviLXNtcAqBxDnP",
+    "amount": 78199.708967745
+  },
+  {
+    "owner": "9EkAmGeJ3aFBijxKdWAZ6HWPBXeortX9BT8Wmu7J1dJD",
+    "amount": 78128.838496704
+  },
+  {
+    "owner": "UkFYxgVPxz4YNELAHaGh3aeRWKmEqegTevaCDdfqdJu",
+    "amount": 78104.886508883
+  },
+  {
     "owner": "2iMbbqGkfxoYutXnwbBikTSh1AWrZLFcWy2e9mqWaTei",
     "amount": 78087.123378652
   },
@@ -764,24 +776,12 @@
     "amount": 78033.748912706
   },
   {
-    "owner": "9gTVfK8CZjdP3KfNLaWFMgGA1FkDdeviLXNtcAqBxDnP",
-    "amount": 78002.805965045
-  },
-  {
     "owner": "36to2vW2mmkovE9MVNyZ24CEueEW5TFgcS269DPMjfvD",
     "amount": 77997.532611933
   },
   {
     "owner": "7uieVDziL6ash997w57dzc5ct5VAhky1d4a2WL1Dhmuu",
     "amount": 77945.523672786
-  },
-  {
-    "owner": "UkFYxgVPxz4YNELAHaGh3aeRWKmEqegTevaCDdfqdJu",
-    "amount": 77940.26447029
-  },
-  {
-    "owner": "9EkAmGeJ3aFBijxKdWAZ6HWPBXeortX9BT8Wmu7J1dJD",
-    "amount": 77889.715822796
   },
   {
     "owner": "9mBrTn9kvqSySrpLk29HhvtdYMSxoDz5v1RDjMVUYky4",
@@ -836,6 +836,10 @@
     "amount": 77532.344927186
   },
   {
+    "owner": "2nLBJVQjJCJAkMDw1aKGBHfM6qXdRFQA9PmZbWSMQz18",
+    "amount": 77527.453537662
+  },
+  {
     "owner": "Bu9RTZsdUDE5VdVYcY7TuChkDdN2hqQKaqtqqPv8P6v",
     "amount": 77498.558951227
   },
@@ -850,10 +854,6 @@
   {
     "owner": "4dUQNcV61gN9Geh5y2wQuwu4sxkdiQxixx4DCVSbos7T",
     "amount": 77350.893142115
-  },
-  {
-    "owner": "2nLBJVQjJCJAkMDw1aKGBHfM6qXdRFQA9PmZbWSMQz18",
-    "amount": 77336.239948217
   },
   {
     "owner": "8RknfWhm9Cw4WDeL9Z8oh3uvRYj3ZEvb6hFESFKa3PB1",
@@ -965,7 +965,7 @@
   },
   {
     "owner": "8TnnKg7QkWfa1V8Mp7utZMEAk8XKMqqpC2TSVvxtW5Ht",
-    "amount": 63952.050945121
+    "amount": 64182.622997485
   },
   {
     "owner": "7xF7qq5uRE36oTecfMQqjt5mqLKXXcGZZJrPgwuihw5k",
@@ -997,39 +997,39 @@
   },
   {
     "owner": "79WURBWJWgF2aEohjfMudtdo3JhEpU51NoHi2QU4WqyM",
-    "amount": 42417.6369019
+    "amount": 42669.073087186
   },
   {
     "owner": "5mxsR8Bt4DqsYxVkkdyaurXAJ9T94xnXTjbtPPmJ74bq",
-    "amount": 42345.264439144
+    "amount": 42567.3179872
   },
   {
     "owner": "G8WCFY8HUGywg6PcW8ayfJh1xG9sB1YBuhRcGK8yRJEk",
-    "amount": 42245.759847877
+    "amount": 42483.465712999
   },
   {
     "owner": "ECAe8bm8xnQQN3MKqfRnzsURwxJ27nhN5h6Fkm9jZ4id",
-    "amount": 42109.61260064
+    "amount": 42284.190161111
   },
   {
     "owner": "93SXE6KMNrXXZpovjha15yoJSfAc6YFgj8rRE38UMUBs",
-    "amount": 42012.756612142
+    "amount": 42229.121562865
   },
   {
     "owner": "53cQzmcVtg55SUEHAtTC87emqZKfdAPGbz86PirMdcLZ",
-    "amount": 41766.154635623
+    "amount": 41942.642696679
   },
   {
     "owner": "BJjpgZYnrdXpMoAE1chy16UNJoG1CLgTYag6pcTtj7dh",
-    "amount": 41686.876531376
+    "amount": 41942.606375761
   },
   {
     "owner": "76QmSGCVUzk7YXmFWVCpaRKWVF1dW4PXTeVxiKnkJzDC",
-    "amount": 41534.162760653
+    "amount": 41756.190174735
   },
   {
     "owner": "8D16nTyDWoaKR9zwhohY97wacTj8DmDsWarGUrQgkt5D",
-    "amount": 40979.559453181
+    "amount": 41182.620247468
   },
   {
     "owner": "HLnpSz9h2S4hiLQ43rnSD9XkcUThA7B8hQMKmDaiTLcC",
