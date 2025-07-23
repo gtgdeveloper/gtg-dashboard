@@ -27,6 +27,12 @@ const payer = Keypair.fromSecretKey(secretKey);
   }
 
   const holders = JSON.parse(fs.readFileSync(HOLDERS_FILE, "utf-8"));
+
+if (!Array.isArray(holders)) {
+  console.error("❌ Invalid holders data. Expected an array.");
+  process.exit(1);
+}
+
   let distributed = [];
 
   const eligible = holders
