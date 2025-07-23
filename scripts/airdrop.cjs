@@ -30,6 +30,7 @@ const payer = Keypair.fromSecretKey(secretKey);
   let distributed = [];
 
   const eligible = holders
+console.log(`👥 Eligible wallets: ${eligible.length}`);
     .filter((h) => h.amount > 20000)
     .sort((a, b) => b.amount - a.amount)
     .slice(3); // Skip top 3
