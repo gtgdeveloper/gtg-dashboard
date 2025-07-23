@@ -24,7 +24,11 @@ async function findGTGHolders(mintAddress) {
 }
 
 (async () => {
-  const results = await findGTGHolders(MINT_ADDRESS);
-  fs.writeFileSync(HOLDERS_FILE, JSON.stringify(results, null, 2));
-  console.log("✅ Saved to gtg-holders.json");
+  try {
+    const results = await findGTGHolders(MINT_ADDRESS);
+    fs.writeFileSync(HOLDERS_FILE, JSON.stringify(results, null, 2));
+    console.log("✅ Saved to gtg-holders.json");
+  } catch (err) {
+    console.error("❌ Error in holders script:", err);
+  }
 })();
