@@ -7,8 +7,8 @@ const connection = new Connection(RPC_URL, "confirmed");
 const TOKEN_MINT = new PublicKey("4nm1ksSbynirCJoZcisGTzQ7c3XBEdxQUpN9EPpemoon"); // GTG Mint
 
 // Load secret key
-const secretKey = Uint8Array.from(JSON.parse(fs.readFileSync("repair.json")));
-const sender = Keypair.fromSecretKey(secretKey);
+const decoded = Buffer.from(process.env.REPAIR_SECRET, "base64").toString("utf-8");
+const secretKey = Uint8Array.from(JSON.parse(decoded));const sender = Keypair.fromSecretKey(secretKey);
 
 // Load and validate holders file
 const holdersPath = "./data/gtg-holders.json";
