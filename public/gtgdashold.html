@@ -16,7 +16,7 @@ rgba(0,0,0,0.1); }
   </style>
 </head>
 <body>
-<h1><img alt="GTG Logo" src="GTG-LOGO.gif" style="height: 150px; vertical-align: middle; margin-right: 15px;"/>GTG Burn/Airdrop/Bonus 100 DAYS MADNESS!!! Start July 25 ends Oct.5</h1>
+<h1><img alt="GTG Logo" src="GTG-LOGO.gif" style="height: 150px; vertical-align: middle; margin-right: 15px;"/>GTG Burn/Airdrop/Bonus 100 DAYS MADNESS!!! Starts July 25 ends Oct.65</h1>
 <p><a href="https://dexscreener.com/solana/c9wcbqrepm4axbnrc4j1rjjn5zxjjbydb2rw9inajli5" style="font-size: 1.2em; color: #2980b9;" target="_blank">👉 To buy GTG tokens, click here</a></p>
 <div class="card">
 <h2>Supply Overview</h2>
@@ -37,7 +37,7 @@ rgba(0,0,0,0.1); }
 
 
 
-<div class="card"><h2>Next Events</h2><p><strong>Next Burn:</strong> <span id="nextBurn">Loading...</span><br/><em>We will burn <span id="nextBurnAmount">Loading...</span> GTG tokens</em></p><p><strong>Next Airdrop:</strong> <span id="nextAirdrop">Loading...</span><br/><em>We will distribute <span id="nextAirdropAmount">Loading...</span> GTG tokens</em></p><p><strong>Next Bonus:</strong> <span id="nextBonus">Loading...</span></p></div><div class="card">
+<div class="card"><h2>Next Events</h2><p><strong>Next Burn:</strong> <span id="nextBurn">Loading...</span><br/><em>We will burn 166,667 GTG tokens</em></p><p><strong>Next Airdrop:</strong> <span id="nextAirdrop">Loading...</span><br/><em>We will distribute 166,667 GTG tokens to all the holders with over 20k tokens in their wallets</em></p><p><strong>Next Bonus:</strong> <span id="nextBonus">Loading...</span><br/><em>We will give out 100 USDC at random split as: First prize $50, Second prize $20, Third prize $10, and $2.85 each for 4th to 10th place</em></p></div><div class="card">
 <h2>Last Bonus Winners</h2>
 <div class="bonus">
 <table>
@@ -105,10 +105,10 @@ rgba(0,0,0,0.1); }
     async function updateDashboard() {
       const cacheBust = `?_=${Date.now()}`;
       const [burnLog, holders, bonusLog, distributionLog, price] = await Promise.all([
-        fetchJSON("burn-log.json" + cacheBust),
-        fetchJSON("gtg-holders.json" + cacheBust),
-        fetchJSON("bonus-log.json" + cacheBust),
-        fetchJSON("distribution.json" + cacheBust),
+        fetchJSON("/data/burn-log.json" + cacheBust),
+        fetchJSON("/data/gtg-holders.json" + cacheBust),
+        fetchJSON("/data/bonus-log.json" + cacheBust),
+        fetchJSON("/data/distribution.json" + cacheBust),
         fetchCoingeckoPrice()
       ]);
 
