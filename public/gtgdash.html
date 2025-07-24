@@ -25,7 +25,6 @@ rgba(0,0,0,0.1); }
 <p><strong>Tokens Burned:</strong> <span id="burned">Loading...</span> GTG</p>
 <p><strong>GTG Price:</strong> <span id="price">Loading...</span> USD</p>
 <p><strong>Market Cap:</strong> <span id="marketCap">Loading...</span> USD</p>
-<p><a href="https://solscan.io/token/4nm1ksSbynirCJoZcisGTzQ7c3XBEdxQUpN9EPpemoon?activity_type=ACTIVITY_SPL_BURN&exclude_amount_zero=false&remove_spam=false" target="_blank" style="color:#2980b9;">🔥 View all GTG burn events on Solscan</a></p>
 </div>
 <div class="card">
 <h2>Upcoming Events</h2>
@@ -84,17 +83,6 @@ rgba(0,0,0,0.1); }
     }
 
     async function fetchCoingeckoPrice() {
-  try {
-    const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=getthegirl&vs_currencies=usd');
-    const data = await res.json();
-    const price = data.getthegirl?.usd;
-    if (!price || isNaN(price)) throw new Error("Invalid price");
-    return price;
-  } catch (e) {
-    console.error("Failed to fetch GTG price:", e);
-    return 0.0001; // fallback price
-  }
-
       try {
         const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=getthegirl&vs_currencies=usd');
         const data = await res.json();
@@ -148,8 +136,8 @@ minimumFractionDigits: 2 })}`;
       const estimatedBurnAmount = 500000; // example static value
       const estimatedAirdropAmount = 1667; // match airdrop.js
 
-      // Removed: nextBurnAmount update line
-      // Removed: nextAirdropAmount update line
+      document.getElementById("nextBurnAmount").textContent = estimatedBurnAmount.toLocaleString("en-US");
+      document.getElementById("nextAirdropAmount").textContent = estimatedAirdropAmount.toLocaleString("en-US");
 
 
       const holdersTable = document.getElementById("holdersTable");
@@ -167,7 +155,6 @@ minimumFractionDigits: 2 })}`;
 
       const bonusTable = document.getElementById("bonusTable");
       bonusTable.innerHTML = "";
-      console.log("Rendering bonus log", bonusLog);
       bonusLog.forEach(({ rank, recipient, amount, tx }) => {
         const row = document.createElement("tr");
         row.innerHTML = `
