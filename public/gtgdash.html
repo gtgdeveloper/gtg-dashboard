@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>GTG Burn/Airdrop/Bonus 100 DAYS MADNESS!!! Starts July 25 ends Oct.5</title>
+<title>GTG Burn/Airdrop/Bonus 100 DAYS MADNESS!!! Start July 25 ends Oct.5</title>
 <style>
     body { font-family: Arial, sans-serif; padding: 2em; background: #000000; color: #ff69b4; }
     h1 { color: #ff69b4; }
@@ -16,7 +16,7 @@ rgba(0,0,0,0.1); }
   </style>
 </head>
 <body>
-<h1><img alt="GTG Logo" src="GTG-LOGO.gif" style="height: 150px; vertical-align: middle; margin-right: 15px;"/>GTG Burn/Airdrop/Bonus 100 DAYS MADNESS!!! Starts July 25 ends Oct.65</h1>
+B<h1><img alt="GTG Logo" src="GTG-LOGO.gif" style="height: 150px; vertical-align: middle; margin-right: 15px;"/>GTG Burn/Airdrop/Bonus 100 DAYS MADNESS!!! Starts July 25 ends Oct.30</h1>
 <p><a href="https://dexscreener.com/solana/c9wcbqrepm4axbnrc4j1rjjn5zxjjbydb2rw9inajli5" style="font-size: 1.2em; color: #2980b9;" target="_blank">👉 To buy GTG tokens, click here</a></p>
 <div class="card">
 <h2>Supply Overview</h2>
@@ -117,36 +117,21 @@ rgba(0,0,0,0.1); }
     async function updateDashboard() {
       const cacheBust = `?_=${Date.now()}`;
       const [burnLog, holders, bonusLog, distributionLog, price] = await Promise.all([
-        fetchJSON("/data/burn-log.json" + cacheBust),
-        fetchJSON("/data/gtg-holders.json" + cacheBust),
-        fetchJSON("/data/bonus-log.json" + cacheBust),
-        fetchJSON("/data/distribution.json" + cacheBust),
+        fetchJSON("burn-log.json" + cacheBust),
+        fetchJSON("gtg-holders.json" + cacheBust),
+        fetchJSON("bonus-log.json" + cacheBust),
+        fetchJSON("distribution.json" + cacheBust),
         fetchCoingeckoPrice()
       ]);
 
-      const mintAddress = "4nm1ksSbynirCJoZcisGTzQ7c3XBEdxQUpN9EPpemoon";
-const rpcUrl = "https://bold-powerful-film.solana-mainnet.quiknode.pro/3e3c22206acbd0918412343760560cbb96a4e9e4";
-
-let supply = 1_000_000_000; // fallback
-try {
-  const rpcRes = await fetch(rpcUrl, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      jsonrpc: "2.0",
-      id: 1,
-      method: "getTokenSupply",
-      params: [mintAddress]
-    })
-  });
-
-  const rpcData = await rpcRes.json();
-  const amountRaw = rpcData.result.value.amount;
-  const decimals = rpcData.result.value.decimals;
-  supply = parseFloat(amountRaw) / Math.pow(10, decimals);
-} catch (e) {
-  console.error("❌ Failed to fetch real-time supply from RPC:", e);
-}
+      let supply = 1_000_000_000;
+      if (Array.isArray(burnLog)) {
+        if (burnLog.length > 0 && burnLog[burnLog.length - 1].outstanding) {
+          supply = burnLog[burnLog.length - 1].outstanding;
+        }
+      } else if (burnLog && burnLog.outstanding) {
+        supply = burnLog.outstanding;
+      }
 
       const burned = 1_000_000_000 - supply;
       const marketCap = supply * price;
