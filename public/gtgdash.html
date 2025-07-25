@@ -184,9 +184,9 @@ minimumFractionDigits: 2 })}`;
       airdropTable.innerHTML = "";
 
       distributionLog
-        .slice(-20)
+        .slice(-300)
         .reverse()
-        .forEach(({ owner, amount, tx, timestamp }) => {
+        .forEach(({ rank, amount, tx, timestamp }) => {
           const row = document.createElement("tr");
           row.innerHTML = `
             <td>${owner}</td>
