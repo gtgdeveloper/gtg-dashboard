@@ -1,99 +1,4 @@
-      
-eligible.forEach(({ wallet, owner, amount }) => {
-  const address = owner || wallet || "Unknown";
-  const row = document.createElement("tr");
-  row.innerHTML = `<td>${address}</td><td>${parseFloat(amount).toLocaleString("en-US")}</td>`;
-  holdersTable.appendChild(row);  
-});   
-      
-      const bonusTable = document.getElementById("bonusTable");
-      bonusTable.innerHTML = "";
-      console.log("Rendering bonus log", bonusLog);
-      bonusLog.forEach(({ rank, recipient, amount, tx }) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${rank}</td>
-          <td>${recipient}</td>      
-eligible.forEach(({ wallet, owner, amount }) => {
-  const address = owner || wallet || "Unknown";
-  const row = document.createElement("tr");
-  row.innerHTML = `<td>${address}</td><td>${parseFloat(amount).toLocaleString("en-US")}</td>`;
-  holdersTable.appendChild(row);  
-});   
-      
-      const bonusTable = document.getElementById("bonusTable");
-      bonusTable.innerHTML = "";
-      console.log("Rendering bonus log", bonusLog);
-      bonusLog.forEach(({ rank, recipient, amount, tx }) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${rank}</td>
-          <td>${recipient}</td>      
-eligible.forEach(({ wallet, owner, amount }) => {
-  const address = owner || wallet || "Unknown";
-  const row = document.createElement("tr");
-  row.innerHTML = `<td>${address}</td><td>${parseFloat(amount).toLocaleString("en-US")}</td>`;
-  holdersTable.appendChild(row);  
-});   
-      
-      const bonusTable = document.getElementById("bonusTable");
-      bonusTable.innerHTML = "";
-      console.log("Rendering bonus log", bonusLog);
-      bonusLog.forEach(({ rank, recipient, amount, tx }) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${rank}</td>
-          <td>${recipient}</td>      
-eligible.forEach(({ wallet, owner, amount }) => {
-  const address = owner || wallet || "Unknown";
-  const row = document.createElement("tr");
-  row.innerHTML = `<td>${address}</td><td>${parseFloat(amount).toLocaleString("en-US")}</td>`;
-  holdersTable.appendChild(row);  
-});   
-      
-      const bonusTable = document.getElementById("bonusTable");
-      bonusTable.innerHTML = "";
-      console.log("Rendering bonus log", bonusLog);
-      bonusLog.forEach(({ rank, recipient, amount, tx }) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${rank}</td>
-          <td>${recipient}</td>      
-eligible.forEach(({ wallet, owner, amount }) => {
-  const address = owner || wallet || "Unknown";
-  const row = document.createElement("tr");
-  row.innerHTML = `<td>${address}</td><td>${parseFloat(amount).toLocaleString("en-US")}</td>`;
-  holdersTable.appendChild(row);  
-});   
-      eligible.forEach(({ owner, amount }) => {
-        const row = document.createElement("tr");
-        row.innerHTML = <td>${owner}</td><td>${parseFloat(amount).toLocaleString("en-US")}</td>;
-        holdersTable.appendChild(row);
-      });
-
-      const bonusTable = document.getElementById("bonusTable");
-      bonusTable.innerHTML = "";
-      console.log("Rendering bonus log", bonusLog);
-      bonusLog.forEach(({ rank, recipient, amount, tx }) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${rank}</td>
-          <td>${recipient}</td>      
-eligible.forEach(({ wallet, owner, amount }) => {
-  const address = owner || wallet || "Unknown";
-  const row = document.createElement("tr");
-  row.innerHTML = `<td>${address}</td><td>${parseFloat(amount).toLocaleString("en-US")}</td>`;
-  holdersTable.appendChild(row);  
-});   
-      
-      const bonusTable = document.getElementById("bonusTable");
-      bonusTable.innerHTML = "";
-      console.log("Rendering bonus log", bonusLog);
-      bonusLog.forEach(({ rank, recipient, amount, tx }) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${rank}</td>
-          <td>${recipient}</td><!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -214,10 +119,10 @@ rgba(0,0,0,0.1); }
       const [burnLog, holders, bonusLog, distributionLog, price] = await Promise.all([
         fetchJSON("/data/burn-log.json" + cacheBust),
        
-fetchJSON("https://raw.githubusercontent.com/gtgdeveloper/gx/main/gtg-holders.json" + cacheBust),
+fetchJSON("data/gtg-holders.json" + cacheBust),
         fetchJSON("/data/bonus-log.json" + cacheBust),
 
-        fetchJSON("https://raw.githubusercontent.com/gtgdeveloper/gx/main/distribution.json" + cacheBust),
+        fetchJSON("data/distribution.json" + cacheBust),
         fetchCoingeckoPrice()
       ]);
 
@@ -259,6 +164,7 @@ minimumFractionDigits: 2 })}`;
      
 
 eligible.forEach(({ wallet, owner, amount }) => {
+    const address = owner || wallet || "Unknown";
   const address = owner || wallet || "Unknown";
   const row = document.createElement("tr");
   row.innerHTML = `<td>${address}</td><td>${parseFloat(amount).toLocaleString("en-US")}</td>`;
@@ -284,10 +190,11 @@ eligible.forEach(({ wallet, owner, amount }) => {
       distributionLog
         .slice(-20)
         .reverse()
-        .forEach(({ owner, amount, tx, timestamp }) => {
+        .forEach(({ wallet, owner, amount, tx, timestamp }) => {
+    const address = owner || wallet || "Unknown";
           const row = document.createElement("tr");
           row.innerHTML = `
-            <td>${owner}</td>
+            <td>${address}</td>
             <td>${amount.toLocaleString("en-US", { minimumFractionDigits: 3 })}</td>
             <td>${new Date(timestamp).toLocaleString()}</td>
             <td><a href="https://solscan.io/tx/${tx}" target="_blank" rel="noopener noreferrer">View</a></td>
