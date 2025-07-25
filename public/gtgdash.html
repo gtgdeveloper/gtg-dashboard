@@ -183,19 +183,22 @@ minimumFractionDigits: 2 })}`;
       const airdropTable = document.getElementById("airdropTable");
       airdropTable.innerHTML = "";
 
-      distributionLog
-        .slice(-300)
-        .reverse()
-        .forEach(({ owner, amount, tx, timestamp }) => {
-          const row = document.createElement("tr");
-          row.innerHTML = `
-            <td>${owner}</td>
-            <td>${amount.toLocaleString("en-US", { minimumFractionDigits: 3 })}</td>
-            <td>${new Date(timestamp).toLocaleString()}</td>
-            <td><a href="https://solscan.io/tx/${tx}" target="_blank" rel="noopener noreferrer">View</a></td>
-          `;
-          airdropTable.appendChild(row);
-        });
+      
+distributionLog
+  .slice(-300)
+  .reverse()
+  .forEach(({ owner, amount, tx, timestamp }) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${owner}</td>
+      <td>${amount.toLocaleString("en-US", { minimumFractionDigits: 3 })}</td>
+      <td>${new Date(timestamp).toLocaleString()}</td>
+      <td><a href="https://solscan.io/tx/${tx}" target="_blank" rel="noopener noreferrer">View</a></td>
+    `;
+    airdropTable.appendChild(row);
+  });
+
+
 
     }
 
