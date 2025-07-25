@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>GTG Burn/Airdrop/Bonus 100 DAYS MADNESS!!! Start July 25 ends Oct.5</title>
+<title>GTG Burn/Airdrop/Bonus 100 DAYS MADNESS!!! Start July 25 ends Oct.31</title>
 <style>
     body { font-family: Arial, sans-serif; padding: 2em; background: #000000; color: #ff69b4; }
     h1 { color: #ff69b4; }
@@ -16,7 +16,7 @@ rgba(0,0,0,0.1); }
   </style>
 </head>
 <body>
-B<h1><img alt="GTG Logo" src="GTG-LOGO.gif" style="height: 150px; vertical-align: middle; margin-right: 15px;"/>GTG Burn/Airdrop/Bonus 100 DAYS MADNESS!!! Starts July 25 ends Oct.30</h1>
+<h1><img alt="GTG Logo" src="GTG-LOGO.gif" style="height: 150px; vertical-align: middle; margin-right: 15px;"/>GTG Burn/Airdrop/Bonus 100 DAYS MADNESS!!! Starts July 25 ends Oct.31</h1>
 <p><a href="https://dexscreener.com/solana/c9wcbqrepm4axbnrc4j1rjjn5zxjjbydb2rw9inajli5" style="font-size: 1.2em; color: #2980b9;" target="_blank">👉 To buy GTG tokens, click here</a></p>
 <div class="card">
 <h2>Supply Overview</h2>
@@ -117,10 +117,12 @@ B<h1><img alt="GTG Logo" src="GTG-LOGO.gif" style="height: 150px; vertical-align
     async function updateDashboard() {
       const cacheBust = `?_=${Date.now()}`;
       const [burnLog, holders, bonusLog, distributionLog, price] = await Promise.all([
-        fetchJSON("burn-log.json" + cacheBust),
-        fetchJSON("gtg-holders.json" + cacheBust),
-        fetchJSON("bonus-log.json" + cacheBust),
-        fetchJSON("distribution.json" + cacheBust),
+        fetchJSON("/data/burn-log.json" + cacheBust),
+       
+fetchJSON("https://raw.githubusercontent.com/gtgdeveloper/gx/main/gtg-holders.json" + cacheBust),
+        fetchJSON("/data/bonus-log.json" + cacheBust),
+
+        fetchJSON("https://raw.githubusercontent.com/gtgdeveloper/gx/main/distribution.json" + cacheBust),
         fetchCoingeckoPrice()
       ]);
 
