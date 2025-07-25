@@ -109,7 +109,7 @@ rgba(0,0,0,0.1); }
 
     function getNextEvent(hourInterval) {
       const now = new Date();
-      const next = new Date(now);
+      const next = new Date(now);B
       next.setUTCHours(Math.floor(now.getUTCHours() / hourInterval) * hourInterval + hourInterval, 0, 0, 0);
       return next.toLocaleString();
     }
@@ -161,11 +161,14 @@ minimumFractionDigits: 2 })}`;
       console.log("Total holders loaded:", holders.length);
       console.log("Eligible holders (≥ 20k):", eligible.length);
 
-      eligible.forEach(({ owner, amount }) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `<td>${owner}</td><td>${parseFloat(amount).toLocaleString("en-US")}</td>`;
-        holdersTable.appendChild(row);
-      });
+      ;
+
+eligible.forEach(({ wallet, owner, amount }) => {
+  const address = owner || wallet || "Unknown";
+  const row = document.createElement("tr");
+  row.innerHTML = `<td>${address}</td><td>${parseFloat(amount).toLocaleString("en-US")}</td>`;
+  holdersTable.appendChild(row);
+});
 
       const bonusTable = document.getElementById("bonusTable");
       bonusTable.innerHTML = "";
