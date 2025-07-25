@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>GTG Burn/Airdrop/Bonus 100 DAYS MADNESS!!! Start July 25 ends Oct.31</title>
+<title>GTG Burn/Airdrop/Bonus 100 DAYS MADNESS!!! Start July 25 ends Oct.5</title>
 <style>
     body { font-family: Arial, sans-serif; padding: 2em; background: #000000; color: #ff69b4; }
     h1 { color: #ff69b4; }
@@ -16,7 +16,7 @@ rgba(0,0,0,0.1); }
   </style>
 </head>
 <body>
-<h1><img alt="GTG Logo" src="GTG-LOGO.gif" style="height: 150px; vertical-align: middle; margin-right: 15px;"/>GTG Burn/Airdrop/Bonus 100 DAYS MADNESS!! Starts July 25 ends Oct.31</h1>
+<h1><img alt="GTG Logo" src="GTG-LOGO.gif" style="height: 150px; vertical-align: middle; margin-right: 15px;"/>GTG Burn/Airdrop/Bonus 100 DAYS MADNESS!!! Starts July 25 ends Oct.65</h1>
 <p><a href="https://dexscreener.com/solana/c9wcbqrepm4axbnrc4j1rjjn5zxjjbydb2rw9inajli5" style="font-size: 1.2em; color: #2980b9;" target="_blank">👉 To buy GTG tokens, click here</a></p>
 <div class="card">
 <h2>Supply Overview</h2>
@@ -25,7 +25,6 @@ rgba(0,0,0,0.1); }
 <p><strong>Tokens Burned:</strong> <span id="burned">Loading...</span> GTG</p>
 <p><strong>GTG Price:</strong> <span id="price">Loading...</span> USD</p>
 <p><strong>Market Cap:</strong> <span id="marketCap">Loading...</span> USD</p>
-<p><a href="https://solscan.io/token/4nm1ksSbynirCJoZcisGTzQ7c3XBEdxQUpN9EPpemoon?activity_type=ACTIVITY_SPL_BURN&exclude_amount_zero=false&remove_spam=false" target="_blank" style="color:#2980b9;">🔥 View all GTG burn events on Solscan</a></p>
 </div>
 <div class="card">
 <h2>Upcoming Events</h2>
@@ -84,17 +83,6 @@ rgba(0,0,0,0.1); }
     }
 
     async function fetchCoingeckoPrice() {
-  try {
-    const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=getthegirl&vs_currencies=usd');
-    const data = await res.json();
-    const price = data.getthegirl?.usd;
-    if (!price || isNaN(price)) throw new Error("Invalid price");
-    return price;
-  } catch (e) {
-    console.error("Failed to fetch GTG price:", e);
-    return 0.0001; // fallback price
-  }
-
       try {
         const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=getthegirl&vs_currencies=usd');
         const data = await res.json();
@@ -109,7 +97,7 @@ rgba(0,0,0,0.1); }
 
     function getNextEvent(hourInterval) {
       const now = new Date();
-      const next = new Date(now);B
+      const next = new Date(now);
       next.setUTCHours(Math.floor(now.getUTCHours() / hourInterval) * hourInterval + hourInterval, 0, 0, 0);
       return next.toLocaleString();
     }
@@ -118,11 +106,9 @@ rgba(0,0,0,0.1); }
       const cacheBust = `?_=${Date.now()}`;
       const [burnLog, holders, bonusLog, distributionLog, price] = await Promise.all([
         fetchJSON("/data/burn-log.json" + cacheBust),
-       
-fetchJSON("data/gtg-holders.json" + cacheBust),
+        fetchJSON("/data/gtg-holders.json" + cacheBust),
         fetchJSON("/data/bonus-log.json" + cacheBust),
-
-        fetchJSON("data/distribution.json" + cacheBust),
+        fetchJSON("/data/distribution.json" + cacheBust),
         fetchCoingeckoPrice()
       ]);
 
@@ -150,8 +136,8 @@ minimumFractionDigits: 2 })}`;
       const estimatedBurnAmount = 500000; // example static value
       const estimatedAirdropAmount = 1667; // match airdrop.js
 
-      // Removed: nextBurnAmount update line
-      // Removed: nextAirdropAmount update line
+      document.getElementById("nextBurnAmount").textContent = estimatedBurnAmount.toLocaleString("en-US");
+      document.getElementById("nextAirdropAmount").textContent = estimatedAirdropAmount.toLocaleString("en-US");
 
 
       const holdersTable = document.getElementById("holdersTable");
@@ -161,19 +147,14 @@ minimumFractionDigits: 2 })}`;
       console.log("Total holders loaded:", holders.length);
       console.log("Eligible holders (≥ 20k):", eligible.length);
 
-     
-
-eligible.forEach(({ wallet, owner, amount }) => {
-    const address = owner || wallet || "Unknown";
-  const address = owner || wallet || "Unknown";
-  const row = document.createElement("tr");
-  row.innerHTML = `<td>${address}</td><td>${parseFloat(amount).toLocaleString("en-US")}</td>`;
-  holdersTable.appendChild(row);
-});
+      eligible.forEach(({ owner, amount }) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${owner}</td><td>${parseFloat(amount).toLocaleString("en-US")}</td>`;
+        holdersTable.appendChild(row);
+      });
 
       const bonusTable = document.getElementById("bonusTable");
       bonusTable.innerHTML = "";
-      console.log("Rendering bonus log", bonusLog);
       bonusLog.forEach(({ rank, recipient, amount, tx }) => {
         const row = document.createElement("tr");
         row.innerHTML = `
@@ -190,11 +171,10 @@ eligible.forEach(({ wallet, owner, amount }) => {
       distributionLog
         .slice(-20)
         .reverse()
-        .forEach(({ wallet, owner, amount, tx, timestamp }) => {
-    const address = owner || wallet || "Unknown";
+        .forEach(({ owner, amount, tx, timestamp }) => {
           const row = document.createElement("tr");
           row.innerHTML = `
-            <td>${address}</td>
+            <td>${owner}</td>
             <td>${amount.toLocaleString("en-US", { minimumFractionDigits: 3 })}</td>
             <td>${new Date(timestamp).toLocaleString()}</td>
             <td><a href="https://solscan.io/tx/${tx}" target="_blank" rel="noopener noreferrer">View</a></td>
