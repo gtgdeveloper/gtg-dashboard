@@ -71,7 +71,13 @@ rgba(0,0,0,0.1); }
 </table>
 </div>
 </div>
+<script src="https://unpkg.com/@solana/web3.js@1.92.1/lib/index.iife.min.js"></script>
+
 <script>
+const rpcUrl = "https://bold-powerful-film.solana-mainnet.quiknode.pro/3e3c22206acbd0918412343760560cbb96a4e9e4";
+const tokenMint = "4nm1ksSbynirCJoZcisGTzQ7c3XBEdxQUpN9EPpemoon";
+
+
     async function fetchJSON(file) {
       try {
         const res = await fetch(file);
@@ -126,14 +132,16 @@ fetchJSON("https://raw.githubusercontent.com/gtgdeveloper/gx/main/gtg-holders.js
         fetchCoingeckoPrice()
       ]);
 
-      let supply = 1_000_000_000;
-      if (Array.isArray(burnLog)) {
-        if (burnLog.length > 0 && burnLog[burnLog.length - 1].outstanding) {
-          supply = burnLog[burnLog.length - 1].outstanding;
-        }
-      } else if (burnLog && burnLog.outstanding) {
-        supply = burnLog.outstanding;
-      }
+      let supply;
+try {
+  const connection = new solanaWeb3.Connection(rpcUrl);
+  const supplyInfo = await connection.getTokenSupply(new solanaWeb3.PublicKey(tokenMint));
+  supply = supplyInfo.value.uiAmount;
+} catch (err) {
+  console.error("Failed to fetch live supply from Solana:", err);
+  supply = 1_000_000_000; // fallback
+}
+
 
       const burned = 1_000_000_000 - supply;
       const marketCap = supply * price;
