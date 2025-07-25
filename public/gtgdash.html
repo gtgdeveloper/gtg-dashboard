@@ -186,7 +186,7 @@ minimumFractionDigits: 2 })}`;
       distributionLog
         .slice(-300)
         .reverse()
-        .forEach(({ rank, amount, tx, timestamp }) => {
+        .forEach(({ owner, amount, tx, timestamp }) => {
           const row = document.createElement("tr");
           row.innerHTML = `
             <td>${owner}</td>
