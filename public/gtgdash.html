@@ -74,12 +74,13 @@ rgba(0,0,0,0.1); }
 
 
 <!-- Solana Web3 and Real-time Supply Fetch -->
+
 <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.js"></script>
 <script>
-  const rpcUrl = "https://bold-powerful-film.solana-mainnet.quiknode.pro/3e3c22206acbd0918412343760560cbb96a4e9e4";
-  const tokenMint = "4nm1ksSbynirCJoZcisGTzQ7c3XBEdxQUpN9EPpemoon";
+  window.onload = async function () {
+    const rpcUrl = "https://bold-powerful-film.solana-mainnet.quiknode.pro/3e3c22206acbd0918412343760560cbb96a4e9e4";
+    const tokenMint = "4nm1ksSbynirCJoZcisGTzQ7c3XBEdxQUpN9EPpemoon";
 
-  async function getTokenSupply() {
     try {
       const connection = new solanaWeb3.Connection(rpcUrl);
       const supplyInfo = await connection.getTokenSupply(new solanaWeb3.PublicKey(tokenMint));
@@ -89,10 +90,33 @@ rgba(0,0,0,0.1); }
       console.error("Failed to fetch token supply:", error);
       document.getElementById("supplyValue").innerText = "Error";
     }
-  }
-
-  getTokenSupply();
+  };
 </script>
+
+
+
+<div class="overview-grid">
+  <div class="overview-box">
+    <h3>Original Supply</h3>
+    <p>1,000,000,000 GTG</p>
+  </div>
+  <div class="overview-box">
+    <h3>Current Supply</h3>
+    <p><span id="supplyValue">Loading...</span> GTG</p>
+  </div>
+  <div class="overview-box">
+    <h3>Tokens Burned</h3>
+    <p><span id="burnedValue">Loading...</span> GTG</p>
+  </div>
+  <div class="overview-box">
+    <h3>GTG Price</h3>
+    <p><span id="priceValue">Loading...</span> USD</p>
+  </div>
+  <div class="overview-box">
+    <h3>Market Cap</h3>
+    <p><span id="marketcapValue">Loading...</span> USD</p>
+  </div>
+</div>
 
 </body>
 </html>
