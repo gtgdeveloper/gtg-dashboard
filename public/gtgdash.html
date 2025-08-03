@@ -16,17 +16,16 @@ rgba(0,0,0,0.1); }
   </style>
 </head>
 <body>
-<h1><img alt="GTG Logo" src="GTG-LOGO.gif" style="height: 150px; vertical-align: middle; margin-right: 15px;"/>GTG Burn/Airdrop/Bonus 100 DAYS MADNESS!!! Starts July 25 ends Oct.31</h1>
+<h1><img alt="GTG Logo" src="GTG-LOGO.gif" style="height: 150px; vertical-align: middle; margin-right: 15px;"/>DON’T MISS OUT!!!<br/>+GTG pay 100% APY FIXED in SOL daily at 9pm EST excludes DEVELOPER<br/>+Payouts to holders every 4 hours (1 million tokens a day)<br/>+Burns tokens every 4 hours (1 million tokens a day )</h1>
 <p style="font-size: 1.2em;">
-  <a href="https://dexscreener.com/solana/c9wcbqrepm4axbnrc4j1rjjn5zxjjbydb2rw9inajli5" style="color: #2980b9;" target="_blank">👉 To buy GTG tokens</a> |
+<a href="https://dexscreener.com/solana/c9wcbqrepm4axbnrc4j1rjjn5zxjjbydb2rw9inajli5" style="color: #2980b9;" target="_blank">👉 To buy GTG tokens</a> |
   <a href="https://gbrain.onrender.com" style="color: #00ffcc;" target="_blank">🎮 Play the GTG NO Brain game</a> |
   <a href="https://gtg3.onrender.com" style="color: #ffcc00;" target="_blank">🤖 Play the Get the Girl AI game</a>
 </p>
-<video autoplay muted loop playsinline style="width:100%; max-width:720px; margin: 20px 0; display:block;">
-  <source src="bonus.webm" type="video/webm">
+<video autoplay="" loop="" muted="" playsinline="" style="width:100%; max-width:720px; margin: 20px 0; display:block;">
+<source src="bonus.webm" type="video/webm"/>
   Your browser does not support the video tag.
 </video>
-
 <div class="card">
 <h2>Supply Overview</h2>
 <p><strong>Original Supply:</strong> 1,000,000,000 GTG</p>
@@ -34,40 +33,19 @@ rgba(0,0,0,0.1); }
 <p><strong>Tokens Burned:</strong> <span id="burned">Loading...</span> GTG</p>
 <p><strong>GTG Price:</strong> <span id="price">Loading...</span> USD</p>
 <p><strong>Market Cap:</strong> <span id="marketCap">Loading...</span> USD</p>
-<p><a href="https://solscan.io/token/4nm1ksSbynirCJoZcisGTzQ7c3XBEdxQUpN9EPpemoon?activity_type=ACTIVITY_SPL_BURN&exclude_amount_zero=false&remove_spam=false" target="_blank" style="color:#2980b9;">🔥 View all GTG burn events on Solscan</a></p>
+<p><a href="https://solscan.io/token/4nm1ksSbynirCJoZcisGTzQ7c3XBEdxQUpN9EPpemoon?activity_type=ACTIVITY_SPL_BURN&amp;exclude_amount_zero=false&amp;remove_spam=false" style="color:#2980b9;" target="_blank">🔥 View all GTG burn events on Solscan</a></p>
 </div>
 <div class="card">
-<h2>Upcoming Events</h2>
 <p><strong>Burn:</strong> 166,667 GTG every 4 hours — that’s 1,000,000 GTG burned daily.</p>
 <p><strong>Airdrop:</strong> 166,667 GTG every 4 hours — 1,000,000 GTG daily to wallets with ≥ 20,000 GTG.</p>
 <p><strong>Bonus:</strong> $100  paid daily in 0.5 SOL five prizes of 0.1 SOL starting Aug.5.</p>
-<p><em>These values are fixed. Every cycle is another chance to benefit!</em></p>
+<p></p>
 </div>
-
-
-
-
-<div class="card"><h2>Next Events</h2><p><strong>Next Burn:</strong> <span id="nextBurn">Loading...</span><br/><em>We will burn 166,667 GTG tokens</em></p><p><strong>Next Airdrop:</strong> <span id="nextAirdrop">Loading...</span><br/><em>We will distribute 166,667 GTG tokens to all the holders with over 20k tokens in their wallets</em></p><p><strong>Next Bonus:</strong> <span id="nextBonus">Loading...</span><br/><em>We will give out 0.5 SOL at random split as: 0.1 SOL for five prizes </em></p></div><div class="card">
-<h2>Last Bonus Winners</h2>
+<div class="card"><h2>Next Events</h2><p><strong>Next Burn:</strong> <span id="nextBurn">Loading...</span><br/><em>We will burn 166,667 GTG tokens</em></p><p><strong>Next Airdrop:</strong> <span id="nextAirdrop">Loading...</span><br/><em>We will distribute 166,667 GTG tokens to all the holders with over 20k tokens in their wallets</em></p><p><strong>Next Bonus:</strong> <span id="nextBonus">Loading...</span><br/><em>Today at 9:00PM EST SOL payout to holders of 20,000 tokens or more 100% APY FIXED! For example if you hold $170 worth of GTG token you will be paid $170/ 365 days in SOL. Assuming SOL is at $170 it would be 0.002 SOL or 1 SOL a year. </em></p></div><div class="card">
 <div class="bonus">
-<table>
-<thead>
-<tr><th>Rank</th><th>Wallet</th><th>Amount</th><th>Tx</th></tr>
-</thead>
-<tbody id="bonusTable"></tbody>
-</table>
 </div>
 </div>
 <div class="card">
-<h2>Last Airdrop Payouts</h2>
-<div class="bonus">
-<table>
-<thead>
-<tr><th>Wallet</th><th>Amount</th><th>Time</th><th>Tx</th></tr>
-</thead>
-<tbody id="airdropTable"></tbody>
-</table>
-</div>
 </div>
 <div class="card">
 <h2>Eligible Wallets (≥ 20,000 GTG) will receive the next bonus payout</h2>
@@ -81,7 +59,6 @@ rgba(0,0,0,0.1); }
 </div>
 </div>
 <script src="https://unpkg.com/@solana/web3.js@1.92.1/lib/index.iife.min.js"></script>
-
 <script>
 const rpcUrl = "https://bold-powerful-film.solana-mainnet.quiknode.pro/3e3c22206acbd0918412343760560cbb96a4e9e4";
 const tokenMint = "4nm1ksSbynirCJoZcisGTzQ7c3XBEdxQUpN9EPpemoon";
